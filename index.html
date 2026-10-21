@@ -123,6 +123,15 @@
   .work-body .btn-ghost:hover { border-color: #fff; }
 
   .biz { background: #fff; }
+
+  .policies { background: var(--paper); border-top: 1px solid var(--line); }
+  .policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .policy { border: 1px solid var(--line); border-radius: 12px; padding: 26px; background: #fff; }
+  .policy h3 { margin: 0 0 10px; font-size: 17px; letter-spacing: -.01em; }
+  .policy p { margin: 0 0 10px; color: var(--ink-soft); font-size: 14px; }
+  .policy p:last-child { margin-bottom: 0; }
+  .policy ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: 14px; }
+  .policy li { margin-bottom: 6px; }
   .biz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
   .biz-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; background: var(--paper); }
   .biz-card dl { margin: 0; display: grid; gap: 0; }
@@ -155,12 +164,17 @@
   .foot img { width: 42px; height: 42px; }
   .foot p { margin: 0; }
   .foot .legal { margin-left: auto; text-align: right; }
+  .foot a { color: #bdb8b0; text-decoration: none; }
+  .foot a:hover { color: #fff; }
+  .foot-links { display: flex; gap: 16px; }
+  .foot-links a { border-bottom: 1px solid #2c2c31; }
 
   @media (max-width: 900px) {
     .hero-grid, .cols, .work-grid, .biz-grid, .contact-grid { grid-template-columns: 1fr; }
     .hero { padding: 48px 0; }
     .work-media img { min-height: 260px; }
     .strip ul { grid-template-columns: 1fr; gap: 10px; }
+    .policy-grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
     .foot .legal { margin-left: 0; text-align: left; }
   }
@@ -307,6 +321,8 @@
             <dd>Digital download only</dd>
             <dt>Customers</dt>
             <dd>Worldwide</dd>
+            <dt>Sales channels</dt>
+            <dd>Online marketplaces &amp; subscriptions</dd>
             <dt>Contact</dt>
             <dd><a href="mailto:drakofigures@gmail.com">drakofigures@gmail.com</a></dd>
           </dl>
@@ -326,6 +342,56 @@
             catalog, pricing and audience.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="policies" id="policies">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Policies</p>
+        <h2>Delivery, refunds &amp; license</h2>
+        <p>Clear terms for customers, platforms and payment partners.</p>
+      </div>
+      <div class="policy-grid">
+        <article class="policy" id="delivery">
+          <h3>Digital delivery</h3>
+          <p>
+            All products are digital files (STL). After payment, the buyer receives a download link
+            by email or through the sales platform. No physical item is shipped.
+          </p>
+          <p>Files are delivered in the format and scale stated on each listing.</p>
+        </article>
+        <article class="policy" id="refunds">
+          <h3>Refunds</h3>
+          <p>
+            Because files are digital and delivered immediately, sales are final once the download
+            is available.
+          </p>
+          <p>
+            If a file is corrupted, incomplete or not as described, contact us within 14 days and we
+            will repair it, replace it or refund the purchase.
+          </p>
+        </article>
+        <article class="policy" id="license">
+          <h3>License</h3>
+          <ul>
+            <li><strong>Personal:</strong> print for private use.</li>
+            <li><strong>Commercial:</strong> sell physical prints, not the digital files.</li>
+            <li>Reselling, sharing or redistributing STL files is not allowed.</li>
+            <li>Each purchase is for one person or studio.</li>
+          </ul>
+        </article>
+        <article class="policy" id="privacy">
+          <h3>Privacy &amp; payments</h3>
+          <p>
+            This site has no user accounts and no tracking cookies. Emails are used only to answer
+            inquiries.
+          </p>
+          <p>
+            Payments are processed by third-party platforms. We do not receive or store card data.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -352,6 +418,12 @@
   <div class="wrap foot">
     <img src="assets/logo-dark.png" alt="" aria-hidden="true">
     <p>&copy; 2026 DRAKO figures LLC. All rights reserved.</p>
+    <p class="foot-links">
+      <a href="#delivery">Delivery</a>
+      <a href="#refunds">Refunds</a>
+      <a href="#license">License</a>
+      <a href="#privacy">Privacy</a>
+    </p>
     <p class="legal">Digital collectible figures for 3D printing.</p>
   </div>
 </footer>
