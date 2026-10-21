@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DRAKO figures LLC — Digital collectible figures for 3D printing</title>
 <meta name="description" content="DRAKO figures LLC is an independent design studio creating original STL figures for 3D printing. Digital collectibles inspired by heavy metal, fantasy and 80s/90s culture.">
-<meta name="theme-color" content="#0f0f11">
+<meta name="theme-color" content="#f4f1ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101013" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DRAKO figures LLC — Digital collectible figures for 3D printing">
 <meta property="og:description" content="Original STL figures for 3D printing. Digital delivery, worldwide. Personal and commercial licenses.">
-<meta property="og:image" content="assets/goddess.jpg">
+<meta property="og:image" content="assets/og.jpg">
 <style>
   :root {
     --paper: #f4f1ec;
@@ -111,7 +113,7 @@
   .work { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .work-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 0; border-radius: var(--radius); overflow: hidden; background: var(--dark); }
   .work-media { background: #0b0b0d; }
-  .work-media img { width: 100%; height: 100%; object-fit: contain; min-height: 340px; }
+  .work-media img { width: 100%; height: 100%; object-fit: cover; min-height: 340px; }
   .work-body { padding: 40px; color: #f4f1ec; align-self: center; }
   .work-body .tag { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #ff5566; margin: 0 0 14px; }
   .work-body h3 { font-size: 30px; line-height: 1.1; margin: 0 0 14px; }
@@ -178,6 +180,26 @@
     nav ul { display: none; }
     .foot .legal { margin-left: 0; text-align: left; }
   }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0f0f11;
+      --paper-2: #151519;
+      --ink: #f4f1ec;
+      --ink-soft: #cfcabf;
+      --muted: #98938b;
+      --line: #2b2b31;
+      --red: #ff2f4a;
+      --red-dark: #d90429;
+    }
+    header { background: rgba(15,15,17,.9); }
+    .biz { background: #0b0b0d; }
+    .biz-card, .policy { background: #17171b; }
+    .strip { background: var(--paper-2); }
+    .work { background: #131317; }
+    .contact, footer { background: #08080a; }
+    .hero-card figcaption span:last-child { color: #98938b; }
+    .contact-links a { background: #17171b; }
+  }
 </style>
 </head>
 <body>
@@ -217,7 +239,7 @@
         </div>
       </div>
       <figure class="hero-card">
-        <img src="assets/goddess.jpg" alt="Goddess of Heavy Metal 120 mm STL figure with gothic base and guitar" width="1024" height="576">
+        <img src="assets/hero.webp" alt="Goddess of Heavy Metal 120 mm STL figure with gothic base and guitar" width="1200" height="1500">
         <figcaption><span>Goddess of Heavy Metal</span><span>120 mm STL</span></figcaption>
       </figure>
     </div>
@@ -278,7 +300,7 @@
       </div>
       <div class="work-grid">
         <div class="work-media">
-          <img src="assets/goddess.jpg" alt="Goddess of Heavy Metal figure preview with three bases and three guitars" width="1024" height="576" loading="lazy">
+          <img src="assets/work.webp" alt="Close-up of the Goddess of Heavy Metal STL figure" width="1200" height="900" loading="lazy">
         </div>
         <div class="work-body">
           <p class="tag">Goddess of Heavy Metal</p>
