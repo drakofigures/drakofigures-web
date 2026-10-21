@@ -35,6 +35,7 @@
     font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
   }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
@@ -50,7 +51,7 @@
   }
   .nav { display: flex; align-items: center; gap: 28px; min-height: 76px; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
-  .brand img { width: 46px; height: 46px; }
+  .brand img { width: 44px; height: 44px; object-fit: contain; }
   .brand span { font-weight: 800; letter-spacing: .14em; font-size: 13px; text-transform: uppercase; }
   .brand small { display: block; font-weight: 600; letter-spacing: .22em; font-size: 9px; color: var(--muted); }
   nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
@@ -85,7 +86,7 @@
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
   .hero-card { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--dark); box-shadow: 0 30px 60px -30px rgba(16,16,19,.55); }
-  .hero-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+  .hero-card img { width: 100%; height: auto; }
   .hero-card figcaption {
     display: flex; justify-content: space-between; gap: 16px;
     padding: 14px 18px; color: #f4f1ec; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
@@ -109,7 +110,8 @@
 
   .work { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .work-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 0; border-radius: var(--radius); overflow: hidden; background: var(--dark); }
-  .work-media img { width: 100%; height: 100%; object-fit: cover; min-height: 340px; }
+  .work-media { background: #0b0b0d; }
+  .work-media img { width: 100%; height: 100%; object-fit: contain; min-height: 340px; }
   .work-body { padding: 40px; color: #f4f1ec; align-self: center; }
   .work-body .tag { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #ff5566; margin: 0 0 14px; }
   .work-body h3 { font-size: 30px; line-height: 1.1; margin: 0 0 14px; }
@@ -170,8 +172,8 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="DRAKO figures LLC home">
-      <img src="assets/logo.png" alt="DRAKO figures logo">
-      <span>DRAKO figures LLC<small>Digital collectibles</small></span>
+      <img src="assets/icon.png" alt="DRAKO figures dragon mark">
+      <span>DRAKO figures<small>LLC · Digital collectibles</small></span>
     </a>
     <nav aria-label="Primary">
       <ul>
@@ -320,8 +322,8 @@
             The company operates online and serves individual makers, painters and small print shops.
           </p>
           <p>
-            Brand and studio: <strong>DRAKO figures</strong>. The studio is independent from other
-            personal art brands of its founder.
+            Brand and studio: <strong>DRAKO figures</strong>. DRAKO is a standalone brand with its own
+            catalog, pricing and audience.
           </p>
         </div>
       </div>
@@ -335,7 +337,7 @@
         <h2>Business &amp; licensing</h2>
         <p>For commercial licenses, platform verification, partnerships or press, email us directly.</p>
         <p><a class="mail" href="mailto:drakofigures@gmail.com">drakofigures@gmail.com</a></p>
-        <p class="contact-note">We reply to business inquiries within 2 business days.</p>
+        <p class="contact-note">Platform or verification requests: include the platform and deadline in the subject.</p>
       </div>
       <ul class="contact-links">
         <li><a href="https://linktr.ee/manugallo" rel="noopener">Official links <small>linktr.ee/manugallo</small></a></li>
