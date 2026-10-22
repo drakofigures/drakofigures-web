@@ -153,6 +153,12 @@
   .gal-feature video { display: block; width: 100%; max-width: 760px; height: auto; margin: 0 auto; background: #000; }
   .gal-feature figcaption { display: flex; justify-content: space-between; gap: 10px; padding: 14px 18px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #bdb8b0; }
   .gal-feature figcaption span:last-child { color: #8f8a83; }
+  .gal-sub { font-size: clamp(20px, 2.4vw, 26px); letter-spacing: -.01em; margin: 46px 0 6px; }
+  .gal-note { margin: 0 0 16px; font-size: 13px; color: var(--muted); }
+  .reward-row { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+  .reward-row figure { flex: 0 0 auto; height: 480px; margin: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--dark); scroll-snap-align: start; }
+  .reward-row a { display: block; height: 100%; }
+  .reward-row img { display: block; height: 100%; width: auto; }
 
   .biz { background: #fff; }
 
@@ -213,6 +219,7 @@
     .strip ul { grid-template-columns: 1fr; gap: 10px; }
     .lineup { grid-template-columns: repeat(2, 1fr); }
     .gal-grid { grid-template-columns: repeat(2, 1fr); }
+    .reward-row figure { height: 400px; }
     .policy-grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
     .foot .legal { margin-left: 0; text-align: left; }
@@ -361,7 +368,7 @@
             <li>Supported and unsupported files</li>
             <li>SFW release</li>
           </ul>
-          <a class="btn btn-ghost" href="https://linktr.ee/manugallo" rel="noopener">See release links</a>
+          <a class="btn btn-ghost" href="https://linktr.ee/drakofigures" rel="noopener">See release links</a>
         </div>
       </div>
       <div class="lineup">
@@ -394,7 +401,7 @@
       <div class="section-head">
         <p class="eyebrow">Gallery</p>
         <h2>Built to print, piece by piece.</h2>
-        <p>From the complete figure to the Early Bird bust, the three bases, the guitars, the hands, the NSFW upgrade and a raw clay turntable.</p>
+        <p>From the complete figure to the Early Bird bust gift, the three bases, the guitars, the hands, the NSFW version and a raw clay turntable.</p>
       </div>
       <div class="gal-grid">
         <figure class="gal-item">
@@ -402,8 +409,8 @@
           <figcaption><span>Complete figure</span><span>120 mm · SFW</span></figcaption>
         </figure>
         <figure class="gal-item">
-          <img src="assets/gallery/earlybird.webp" alt="Animated Early Bird card with the free bust gift" width="540" height="960" loading="lazy">
-          <figcaption><span>Early Bird bust</span><span>Free gift · 100 backers</span></figcaption>
+          <img src="assets/gallery/bust.webp" alt="Early Bird gift: exclusive bust of the Goddess of Heavy Metal" width="480" height="854" loading="lazy">
+          <figcaption><span>Early Bird gift</span><span>Exclusive bust</span></figcaption>
         </figure>
         <figure class="gal-item">
           <img src="assets/gallery/bases.webp" alt="Animated view of the three display bases" width="540" height="960" loading="lazy">
@@ -421,6 +428,15 @@
           <img src="assets/gallery/nsfw.webp" alt="Animated NSFW version of the figure, blurred by default" width="540" height="960" loading="lazy">
           <figcaption><span>NSFW version</span><span>+18</span></figcaption>
         </figure>
+      </div>
+      <h3 class="gal-sub">Kickstarter rewards</h3>
+      <p class="gal-note">Planned tiers in USD. Final prices and availability confirmed at launch.</p>
+      <div class="reward-row">
+        <figure><a href="assets/gallery/reward-eb.webp" target="_blank" rel="noopener"><img src="assets/gallery/reward-eb.webp" alt="Early Bird $24 reward card" width="540" height="1325" loading="lazy"></a></figure>
+        <figure><a href="assets/gallery/collector.webp" target="_blank" rel="noopener"><img src="assets/gallery/collector.webp" alt="Main Collector $29 reward card" width="540" height="960" loading="lazy"></a></figure>
+        <figure><a href="assets/gallery/reward-all.webp" target="_blank" rel="noopener"><img src="assets/gallery/reward-all.webp" alt="Instant All $39 reward card" width="540" height="1536" loading="lazy"></a></figure>
+        <figure><a href="assets/gallery/reward-merchant.webp" target="_blank" rel="noopener"><img src="assets/gallery/reward-merchant.webp" alt="Merchant $59 reward card" width="540" height="1536" loading="lazy"></a></figure>
+        <figure><a href="assets/gallery/reward-nsfw.webp" target="_blank" rel="noopener"><img src="assets/gallery/reward-nsfw.webp" alt="NSFW upgrade +$12 add-on card" width="540" height="847" loading="lazy"></a></figure>
       </div>
       <figure class="gal-feature">
         <video src="assets/gallery/clay.mp4" width="640" height="640" autoplay loop muted playsinline preload="metadata" aria-label="Clay turntable preview of the sculpt"></video>
@@ -534,7 +550,7 @@
         <p class="contact-note">Platform or verification requests: include the platform and deadline in the subject.</p>
       </div>
       <ul class="contact-links">
-        <li><a href="https://linktr.ee/manugallo" rel="noopener">Official links <small>linktr.ee/manugallo</small></a></li>
+        <li><a href="https://linktr.ee/drakofigures" rel="noopener">Official links <small>linktr.ee/drakofigures</small></a></li>
         <li><a href="mailto:drakofigures@gmail.com">Email the studio <small>drakofigures@gmail.com</small></a></li>
         <li><a href="#work">Product information <small>Goddess of Rock</small></a></li>
         <li><a href="https://www.kickstarter.com/profile/445629813" rel="noopener">Kickstarter <small>Profile</small></a></li>
@@ -574,7 +590,7 @@
   "name": "DRAKO figures LLC",
   "email": "drakofigures@gmail.com",
   "description": "Independent design studio creating original STL figures for 3D printing.",
-  "sameAs": ["https://linktr.ee/manugallo", "https://www.kickstarter.com/profile/445629813", "https://www.myminifactory.com/es/users/DRAKOfigures"]
+  "sameAs": ["https://linktr.ee/drakofigures", "https://www.kickstarter.com/profile/445629813", "https://www.myminifactory.com/es/users/DRAKOfigures"]
 }
 </script>
 </body>
