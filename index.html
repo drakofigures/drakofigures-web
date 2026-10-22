@@ -133,7 +133,7 @@
   .lineup-card.is-live p { color: #bdb8b0; }
 
   .gallery { background: var(--paper); border-top: 1px solid var(--line); }
-  .gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .gal-item { margin: 0; border-radius: 12px; overflow: hidden; background: var(--dark); border: 1px solid var(--line); }
   .gal-item img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; }
   .gal-item video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; }
@@ -149,6 +149,10 @@
     background: rgba(10,10,12,.45);
   }
   .gal-item.is-nsfw.revealed::after { display: none; }
+  .gal-feature { margin: 22px 0 0; border-radius: 12px; overflow: hidden; background: var(--dark); border: 1px solid var(--line); }
+  .gal-feature video { display: block; width: 100%; max-width: 760px; height: auto; margin: 0 auto; background: #000; }
+  .gal-feature figcaption { display: flex; justify-content: space-between; gap: 10px; padding: 14px 18px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #bdb8b0; }
+  .gal-feature figcaption span:last-child { color: #8f8a83; }
 
   .biz { background: #fff; }
 
@@ -417,11 +421,11 @@
           <img src="assets/gallery/nsfw.webp" alt="Animated NSFW version of the figure, blurred by default" width="540" height="960" loading="lazy">
           <figcaption><span>NSFW version</span><span>+18</span></figcaption>
         </figure>
-        <figure class="gal-item">
-          <video src="assets/gallery/clay.mp4" width="540" height="960" autoplay loop muted playsinline preload="metadata" aria-label="Clay turntable preview of the sculpt"></video>
-          <figcaption><span>Clay turntable</span><span>Sculpt preview</span></figcaption>
-        </figure>
       </div>
+      <figure class="gal-feature">
+        <video src="assets/gallery/clay.mp4" width="640" height="640" autoplay loop muted playsinline preload="metadata" aria-label="Clay turntable preview of the sculpt"></video>
+        <figcaption><span>Clay turntable</span><span>Sculpt preview</span></figcaption>
+      </figure>
     </div>
   </section>
 
