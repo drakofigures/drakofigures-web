@@ -136,8 +136,19 @@
   .gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .gal-item { margin: 0; border-radius: 12px; overflow: hidden; background: var(--dark); border: 1px solid var(--line); }
   .gal-item img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; }
+  .gal-item video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; }
   .gal-item figcaption { display: flex; justify-content: space-between; gap: 10px; padding: 12px 14px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #bdb8b0; }
   .gal-item figcaption span:last-child { color: #8f8a83; }
+  .gal-item.is-nsfw { position: relative; cursor: pointer; }
+  .gal-item.is-nsfw img { filter: blur(26px) saturate(.85); transform: scale(1.04); transition: filter .2s ease; }
+  .gal-item.is-nsfw.revealed img { filter: none; transform: none; }
+  .gal-item.is-nsfw::after {
+    content: "NSFW · +18\A Click to view";
+    white-space: pre; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    text-align: center; font-size: 12px; font-weight: 800; letter-spacing: .14em; color: #fff;
+    background: rgba(10,10,12,.45);
+  }
+  .gal-item.is-nsfw.revealed::after { display: none; }
 
   .biz { background: #fff; }
 
@@ -265,7 +276,7 @@
         </div>
       </div>
       <figure class="hero-card">
-        <img src="assets/hero.webp" alt="Goddess of Heavy Metal 120 mm STL figure with gothic base and guitar" width="1200" height="1500">
+        <img src="assets/hero.webp" alt="Goddess of Heavy Metal 120 mm STL figure with gothic base and guitar" width="1200" height="1200">
         <figcaption><span>Goddess of Heavy Metal</span><span>120 mm STL</span></figcaption>
       </figure>
     </div>
@@ -379,24 +390,36 @@
       <div class="section-head">
         <p class="eyebrow">Gallery</p>
         <h2>Built to print, piece by piece.</h2>
-        <p>Interchangeable hands, three guitars, real-scale proportions and the sculpt detail of Goddess of Heavy Metal.</p>
+        <p>From the complete figure to the Early Bird bust, the three bases, the guitars, the hands, the NSFW upgrade and a raw clay turntable.</p>
       </div>
       <div class="gal-grid">
         <figure class="gal-item">
-          <img src="assets/gallery/hands.webp" alt="Animated view of the eight interchangeable hands" width="540" height="960" loading="lazy">
-          <figcaption><span>8 hands</span><span>Swap set</span></figcaption>
+          <img src="assets/gallery/complete.webp" alt="Animated turntable of the complete Goddess of Heavy Metal figure" width="540" height="960" loading="lazy">
+          <figcaption><span>Complete figure</span><span>120 mm · SFW</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/earlybird.webp" alt="Animated Early Bird card with the free bust gift" width="540" height="960" loading="lazy">
+          <figcaption><span>Early Bird bust</span><span>Free gift · 100 backers</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/bases.webp" alt="Animated view of the three display bases" width="540" height="960" loading="lazy">
+          <figcaption><span>3 bases</span><span>Power · Cathedral · Stage</span></figcaption>
         </figure>
         <figure class="gal-item">
           <img src="assets/gallery/guitars.webp" alt="Animated view of the three guitars" width="540" height="960" loading="lazy">
           <figcaption><span>3 guitars</span><span>Dragon · Demon · Angel</span></figcaption>
         </figure>
         <figure class="gal-item">
-          <img src="assets/gallery/scale.webp" alt="Animated scale comparison of the figure" width="540" height="960" loading="lazy">
-          <figcaption><span>Scale</span><span>28–120 mm</span></figcaption>
+          <img src="assets/gallery/hands.webp" alt="Animated view of the eight interchangeable hands" width="540" height="960" loading="lazy">
+          <figcaption><span>8 hands</span><span>Swap set</span></figcaption>
+        </figure>
+        <figure class="gal-item is-nsfw" role="button" tabindex="0" aria-label="NSFW version, blurred. Activate to reveal.">
+          <img src="assets/gallery/nsfw.webp" alt="Animated NSFW version of the figure, blurred by default" width="540" height="960" loading="lazy">
+          <figcaption><span>NSFW version</span><span>+18</span></figcaption>
         </figure>
         <figure class="gal-item">
-          <img src="assets/gallery/detail.webp" alt="Animated close-up of the sculpt detail" width="540" height="960" loading="lazy">
-          <figcaption><span>Sculpt detail</span><span>Resin-ready</span></figcaption>
+          <video src="assets/gallery/clay.mp4" width="540" height="960" autoplay loop muted playsinline preload="metadata" aria-label="Clay turntable preview of the sculpt"></video>
+          <figcaption><span>Clay turntable</span><span>Sculpt preview</span></figcaption>
         </figure>
       </div>
     </div>
@@ -531,6 +554,15 @@
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.gal-item.is-nsfw').forEach(function (el) {
+    function reveal() { el.classList.toggle('revealed'); }
+    el.addEventListener('click', reveal);
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reveal(); }
+    });
+  });
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
