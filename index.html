@@ -132,6 +132,13 @@
   .lineup-card.is-live h4 { color: #fff; }
   .lineup-card.is-live p { color: #bdb8b0; }
 
+  .gallery { background: var(--paper); border-top: 1px solid var(--line); }
+  .gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .gal-item { margin: 0; border-radius: 12px; overflow: hidden; background: var(--dark); border: 1px solid var(--line); }
+  .gal-item img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; }
+  .gal-item figcaption { display: flex; justify-content: space-between; gap: 10px; padding: 12px 14px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #bdb8b0; }
+  .gal-item figcaption span:last-child { color: #8f8a83; }
+
   .biz { background: #fff; }
 
   .policies { background: var(--paper); border-top: 1px solid var(--line); }
@@ -168,6 +175,11 @@
   }
   .contact-links a:hover { border-color: var(--red); }
   .contact-links small { color: #8f8a83; font-weight: 600; }
+  .contact-links .soon {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    border: 1px dashed #2c2c31; border-radius: 10px; padding: 16px 18px;
+    font-weight: 700; color: #8f8a83; background: #131316;
+  }
 
   footer { background: #0a0a0c; color: #8f8a83; padding: 34px 0; font-size: 12px; }
   .foot { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
@@ -185,6 +197,7 @@
     .work-media img { min-height: 260px; }
     .strip ul { grid-template-columns: 1fr; gap: 10px; }
     .lineup { grid-template-columns: repeat(2, 1fr); }
+    .gal-grid { grid-template-columns: repeat(2, 1fr); }
     .policy-grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
     .foot .legal { margin-left: 0; text-align: left; }
@@ -227,6 +240,7 @@
       <ul>
         <li><a href="#about">Studio</a></li>
         <li><a href="#work">Work</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#business">Business</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -360,6 +374,34 @@
     </div>
   </section>
 
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Gallery</p>
+        <h2>Built to print, piece by piece.</h2>
+        <p>Interchangeable hands, three guitars, real-scale proportions and the sculpt detail of Goddess of Heavy Metal.</p>
+      </div>
+      <div class="gal-grid">
+        <figure class="gal-item">
+          <img src="assets/gallery/hands.webp" alt="Animated view of the eight interchangeable hands" width="540" height="960" loading="lazy">
+          <figcaption><span>8 hands</span><span>Swap set</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/guitars.webp" alt="Animated view of the three guitars" width="540" height="960" loading="lazy">
+          <figcaption><span>3 guitars</span><span>Dragon · Demon · Angel</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/scale.webp" alt="Animated scale comparison of the figure" width="540" height="960" loading="lazy">
+          <figcaption><span>Scale</span><span>28–120 mm</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/detail.webp" alt="Animated close-up of the sculpt detail" width="540" height="960" loading="lazy">
+          <figcaption><span>Sculpt detail</span><span>Resin-ready</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="biz" id="business">
     <div class="wrap">
       <div class="section-head">
@@ -467,7 +509,9 @@
       <ul class="contact-links">
         <li><a href="https://linktr.ee/manugallo" rel="noopener">Official links <small>linktr.ee/manugallo</small></a></li>
         <li><a href="mailto:drakofigures@gmail.com">Email the studio <small>drakofigures@gmail.com</small></a></li>
-          <li><a href="#work">Product information <small>Goddess of Rock</small></a></li>
+        <li><a href="#work">Product information <small>Goddess of Rock</small></a></li>
+        <li class="soon">Kickstarter <small>Coming soon</small></li>
+        <li class="soon">MyMiniFactory <small>Coming soon</small></li>
       </ul>
     </div>
   </section>
