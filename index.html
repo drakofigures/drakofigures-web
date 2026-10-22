@@ -85,6 +85,10 @@
   }
   h1 em { font-style: normal; color: var(--red); }
   .lead { font-size: 18px; color: var(--ink-soft); max-width: 52ch; margin: 0 0 30px; }
+  .lead-2 { font-size: 15px; color: var(--muted); max-width: 52ch; margin: 0 0 22px; }
+  .hero .lead { margin-bottom: 14px; }
+  .hero-facts { margin: 24px 0 24px; font-size: 13px; }
+  .hero-facts li { padding: 9px 0; }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
   .hero-card { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--dark); box-shadow: 0 30px 60px -30px rgba(16,16,19,.55); }
@@ -274,13 +278,24 @@
 <main id="main">
   <section class="hero" id="top">
     <div class="wrap hero-grid">
-      <div>
+      <div id="about">
         <p class="eyebrow">Independent 3D design studio</p>
         <h1>Digital collectible figures for <em>3D printing</em>.</h1>
         <p class="lead">
           DRAKO figures LLC designs original, display-ready STL figures for resin printing.
           Sculpted in detail, prepared for real printing, and delivered as digital files worldwide.
         </p>
+        <p class="lead-2">
+          Now releasing <strong>Goddess of Heavy Metal</strong>, figure 01 of four in the
+          <strong>Goddess of Rock</strong> collection. Support and unsupported files, personal and
+          commercial licences.
+        </p>
+        <ul class="facts hero-facts">
+          <li><span>Studio</span><span>DRAKO figures LLC</span></li>
+          <li><span>Collection</span><span>Goddess of Rock · 4 figures</span></li>
+          <li><span>Scale</span><span>120 mm / 75 mm</span></li>
+          <li><span>Delivery</span><span>Instant download · worldwide</span></li>
+        </ul>
         <div class="actions">
           <a class="btn btn-red" href="#work">View the collection</a>
           <a class="btn btn-ghost" href="#business">Business information</a>
@@ -302,44 +317,6 @@
       </ul>
     </div>
   </div>
-
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">The studio</p>
-        <h2>Original sculpts, made to be printed.</h2>
-        <p>DRAKO is a digital-first figure studio. We design, sculpt and prepare our own characters and display pieces, then sell the printable files directly to makers and collectors.</p>
-      </div>
-      <div class="cols">
-        <div class="prose">
-          <p>
-            Every release is built around a complete scene: a character, interchangeable accessories and a
-            display base. Files are exported at a defined scale in millimeters and prepared in supported
-            and unsupported versions, so the buyer can print with the workflow they already use.
-          </p>
-          <p>
-            Our current release is <strong>Goddess of Heavy Metal</strong>, the first of four figures in the
-            <strong>Goddess of Rock</strong> collection. The remaining three are in development. The line
-            explores heavy metal, fantasy and 80s/90s imagery, and every release is announced through our
-            public channels.
-          </p>
-          <p>
-            We work with personal-use and commercial licenses. Commercial buyers can sell physical prints;
-            the digital files themselves are never resold or redistributed.
-          </p>
-        </div>
-        <ul class="facts">
-          <li><span>Studio</span><span>DRAKO figures LLC</span></li>
-          <li><span>Focus</span><span>Original STL figures</span></li>
-          <li><span>Collection</span><span>Goddess of Rock · 4 figures</span></li>
-          <li><span>Format</span><span>Digital files (STL)</span></li>
-          <li><span>Scale</span><span>120 mm / 75 mm</span></li>
-          <li><span>Delivery</span><span>Instant download</span></li>
-          <li><span>Market</span><span>Worldwide</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
   <section class="work" id="work">
     <div class="wrap">
