@@ -123,6 +123,14 @@
   .specs li::before { content: ""; width: 6px; height: 6px; margin-top: 7px; background: var(--red); flex: none; }
   .work-body .btn-ghost { border-color: #3a3a40; color: #fff; }
   .work-body .btn-ghost:hover { border-color: #fff; }
+  .lineup { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 22px; }
+  .lineup-card { border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: var(--paper); }
+  .lineup-card .num { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--red); }
+  .lineup-card h4 { margin: 8px 0 4px; font-size: 15px; line-height: 1.2; }
+  .lineup-card p { margin: 0; font-size: 12px; color: var(--muted); }
+  .lineup-card.is-live { background: var(--dark); border-color: var(--dark); }
+  .lineup-card.is-live h4 { color: #fff; }
+  .lineup-card.is-live p { color: #bdb8b0; }
 
   .biz { background: #fff; }
 
@@ -176,9 +184,13 @@
     .hero { padding: 48px 0; }
     .work-media img { min-height: 260px; }
     .strip ul { grid-template-columns: 1fr; gap: 10px; }
+    .lineup { grid-template-columns: repeat(2, 1fr); }
     .policy-grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
     .foot .legal { margin-left: 0; text-align: left; }
+  }
+  @media (max-width: 560px) {
+    .lineup, .specs { grid-template-columns: 1fr; }
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -270,9 +282,10 @@
             and unsupported versions, so the buyer can print with the workflow they already use.
           </p>
           <p>
-            Our first collection, <strong>Goddesses of Rock</strong>, explores heavy metal, fantasy and 80s/90s
-            imagery through original characters. Releases are announced through our public channels and
-            fulfilled digitally: no physical inventory, no shipping.
+            Our collection, <strong>Goddess of Rock</strong>, is made up of <strong>four figures</strong>.
+            The first release is <strong>Goddess of Heavy Metal</strong>; the remaining three are in
+            development. The theme runs through heavy metal, fantasy and 80s/90s imagery. Releases are
+            announced through our public channels and fulfilled digitally: no physical inventory, no shipping.
           </p>
           <p>
             We work with personal-use and commercial licenses. Commercial buyers can sell physical prints;
@@ -282,6 +295,7 @@
         <ul class="facts">
           <li><span>Studio</span><span>DRAKO figures LLC</span></li>
           <li><span>Focus</span><span>Original STL figures</span></li>
+          <li><span>Collection</span><span>Goddess of Rock · 4 figures</span></li>
           <li><span>Format</span><span>Digital files (STL)</span></li>
           <li><span>Scale</span><span>120 mm / 75 mm</span></li>
           <li><span>Delivery</span><span>Instant download</span></li>
@@ -294,22 +308,23 @@
   <section class="work" id="work">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Featured work</p>
-        <h2>Goddesses of Rock — 01</h2>
-        <p>The first release of the collection. A single scene with multiple display options.</p>
+        <p class="eyebrow">The collection</p>
+        <h2>Goddess of Rock</h2>
+        <p>Four figures. One collection. Now presenting <strong>01 — Goddess of Heavy Metal</strong>.</p>
       </div>
       <div class="work-grid">
         <div class="work-media">
           <img src="assets/work.webp" alt="Close-up of the Goddess of Heavy Metal STL figure" width="1200" height="900" loading="lazy">
         </div>
         <div class="work-body">
-          <p class="tag">Goddess of Heavy Metal</p>
+          <p class="tag">01 / 04 — Goddess of Heavy Metal</p>
           <h3>One character. Three stages. Three guitars.</h3>
           <p>
-            A 120 mm resin figure with interchangeable hands, three display bases and three guitars,
-            designed as a set and shown as one complete piece.
+            The first of four figures in the collection: a 120 mm resin figure with interchangeable hands,
+            three display bases and three guitars, designed as a set and shown as one complete piece.
           </p>
           <ul class="specs">
+            <li>Figure 01 of 04</li>
             <li>120 mm and 75 mm versions</li>
             <li>3 bases: Power, Cathedral, Sound Stage</li>
             <li>3 guitars: Dragon, Demon Axe, Angel Wing</li>
@@ -318,6 +333,28 @@
             <li>SFW release</li>
           </ul>
           <a class="btn btn-ghost" href="https://linktr.ee/manugallo" rel="noopener">See release links</a>
+        </div>
+      </div>
+      <div class="lineup">
+        <div class="lineup-card is-live">
+          <p class="num">01 · Available</p>
+          <h4>Goddess of Heavy Metal</h4>
+          <p>Kickstarter release · 2026</p>
+        </div>
+        <div class="lineup-card">
+          <p class="num">In development</p>
+          <h4>Goddess of Punk</h4>
+          <p>Coming after release</p>
+        </div>
+        <div class="lineup-card">
+          <p class="num">In development</p>
+          <h4>Goddess of Synth</h4>
+          <p>Coming after release</p>
+        </div>
+        <div class="lineup-card">
+          <p class="num">In development</p>
+          <h4>Goddess of Glam</h4>
+          <p>Coming after release</p>
         </div>
       </div>
     </div>
@@ -430,7 +467,7 @@
       <ul class="contact-links">
         <li><a href="https://linktr.ee/manugallo" rel="noopener">Official links <small>linktr.ee/manugallo</small></a></li>
         <li><a href="mailto:drakofigures@gmail.com">Email the studio <small>drakofigures@gmail.com</small></a></li>
-        <li><a href="#work">Product information <small>Goddesses of Rock</small></a></li>
+          <li><a href="#work">Product information <small>Goddess of Rock</small></a></li>
       </ul>
     </div>
   </section>
