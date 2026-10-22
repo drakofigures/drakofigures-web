@@ -155,10 +155,11 @@
   .gal-feature figcaption span:last-child { color: #8f8a83; }
   .gal-sub { font-size: clamp(20px, 2.4vw, 26px); letter-spacing: -.01em; margin: 46px 0 6px; }
   .gal-note { margin: 0 0 16px; font-size: 13px; color: var(--muted); }
-  .reward-row { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
-  .reward-row figure { flex: 0 0 auto; height: 480px; margin: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--dark); scroll-snap-align: start; }
-  .reward-row a { display: block; height: 100%; }
-  .reward-row img { display: block; height: 100%; width: auto; }
+  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+  .tier { border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; background: var(--paper-2); }
+  .tier-name { margin: 0 0 6px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+  .tier-price { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+  .tier-note { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
 
   .biz { background: #fff; }
 
@@ -219,7 +220,6 @@
     .strip ul { grid-template-columns: 1fr; gap: 10px; }
     .lineup { grid-template-columns: repeat(2, 1fr); }
     .gal-grid { grid-template-columns: repeat(2, 1fr); }
-    .reward-row figure { height: 400px; }
     .policy-grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
     .foot .legal { margin-left: 0; text-align: left; }
@@ -453,11 +453,14 @@
           <figcaption><span>The legend</span><span>Goddess of Rock</span></figcaption>
         </figure>
       </div>
-      <h3 class="gal-sub">More tiers</h3>
-      <p class="gal-note">Planned tiers in USD. Final prices and availability confirmed at launch.</p>
-      <div class="reward-row">
-        <figure><a href="assets/gallery/reward-all.webp" target="_blank" rel="noopener"><img src="assets/gallery/reward-all.webp" alt="Instant All $39 reward card" width="540" height="1536" loading="lazy"></a></figure>
-        <figure><a href="assets/gallery/reward-merchant.webp" target="_blank" rel="noopener"><img src="assets/gallery/reward-merchant.webp" alt="Merchant $59 reward card" width="540" height="1536" loading="lazy"></a></figure>
+      <h3 class="gal-sub">Kickstarter tiers</h3>
+      <p class="gal-note">Planned prices in USD. Final tiers and availability confirmed at launch.</p>
+      <div class="tiers">
+        <div class="tier"><p class="tier-name">Early Bird</p><p class="tier-price">$24</p><p class="tier-note">First 100 backers · free bust gift</p></div>
+        <div class="tier"><p class="tier-name">Main Collector</p><p class="tier-price">$29</p><p class="tier-note">Figure, 3 guitars, 3 bases, 8 hands</p></div>
+        <div class="tier"><p class="tier-name">Instant All</p><p class="tier-price">$39</p><p class="tier-note">Everything included · stretch goals</p></div>
+        <div class="tier"><p class="tier-name">Merchant</p><p class="tier-price">$59</p><p class="tier-note">Commercial licence · sell prints</p></div>
+        <div class="tier"><p class="tier-name">NSFW add-on</p><p class="tier-price">+$12</p><p class="tier-note">Optional upgrade · 18+</p></div>
       </div>
       <figure class="gal-feature">
         <video src="assets/gallery/clay.mp4" width="640" height="640" autoplay loop muted playsinline preload="metadata" aria-label="Clay turntable preview of the sculpt"></video>
