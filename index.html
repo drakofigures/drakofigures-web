@@ -71,6 +71,12 @@
   .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
   .btn-ghost:hover { border-color: var(--ink); }
 
+  .lang-switch { display: flex; gap: 2px; margin-right: 14px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .lang-switch button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 12px; font-weight: 700; padding: 7px 10px; cursor: pointer; letter-spacing: .08em; }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch button.is-active { background: var(--ink); color: var(--paper); }
+  .lang-switch button.is-active:hover { color: var(--paper); }
+
   .hero { padding: 74px 0 64px; }
   .hero-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 52px; align-items: center; }
   .eyebrow {
@@ -271,6 +277,10 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+    </div>
     <a class="btn btn-red" href="mailto:drakofigures@gmail.com">Get in touch</a>
   </div>
 </header>
@@ -575,6 +585,7 @@
   </div>
 </footer>
 
+<script src="i18n.js" defer></script>
 <script>
   document.querySelectorAll('.gal-item.is-nsfw').forEach(function (el) {
     function reveal() { el.classList.toggle('revealed'); }
