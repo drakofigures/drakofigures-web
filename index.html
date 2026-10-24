@@ -1,55 +1,598 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Drako Figures – Heavy Metal Goddess</title>
-    <style>
-        body{margin:0;font-family:Arial,sans-serif;background:#111;color:#ffd700}
-        header{display:flex;justify-content:space-between;align-items:center;background:#000;padding:1rem}
-        nav a{color:#ffd700;margin-left:1rem;text-decoration:none}
-        nav a:hover{text-decoration:underline}
-        button{background:none;border:none;color:#ffd700;font-size:1rem;cursor:pointer}
-        .content{padding:2rem}
-        .lang{display:flex;gap:0.5rem}
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DRAKO figures LLC — Digital collectible figures for 3D printing</title>
+<meta name="description" content="DRAKO figures LLC is an independent design studio creating original STL figures for 3D printing. Digital collectibles inspired by heavy metal, fantasy and 80s/90s culture.">
+<meta name="theme-color" content="#f4f1ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101013" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DRAKO figures LLC — Digital collectible figures for 3D printing">
+<meta property="og:description" content="Original STL figures for 3D printing. Digital delivery, worldwide. Personal and commercial licenses.">
+<meta property="og:image" content="assets/og.jpg">
+<style>
+  :root {
+    --paper: #f4f1ec;
+    --paper-2: #ebe6df;
+    --ink: #101012;
+    --ink-soft: #3c3a37;
+    --muted: #6d6962;
+    --line: #d8d2c9;
+    --red: #d90429;
+    --red-dark: #a80320;
+    --dark: #101013;
+    --radius: 14px;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+  .skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: 10px 16px; z-index: 99; }
+  .skip:focus { left: 12px; top: 12px; }
+
+  header {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(244,241,236,.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; gap: 28px; min-height: 76px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+  .brand img { width: 44px; height: 44px; object-fit: contain; }
+  .brand span { font-weight: 800; letter-spacing: .14em; font-size: 13px; text-transform: uppercase; }
+  .brand small { display: block; font-weight: 600; letter-spacing: .22em; font-size: 9px; color: var(--muted); }
+  nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+  nav a:hover { color: var(--red); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    text-decoration: none; font-weight: 700; font-size: 14px;
+    padding: 12px 20px; border-radius: 8px; border: 1px solid transparent;
+    transition: transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-red:hover { background: var(--red-dark); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  .hero { padding: 74px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 52px; align-items: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--red); margin: 0 0 18px;
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--red); }
+  h1 {
+    font-size: clamp(38px, 5.2vw, 62px);
+    line-height: 1.02; letter-spacing: -.03em; margin: 0 0 20px; font-weight: 800;
+  }
+  h1 em { font-style: normal; color: var(--red); }
+  .lead { font-size: 18px; color: var(--ink-soft); max-width: 52ch; margin: 0 0 30px; }
+  .lead-2 { font-size: 15px; color: var(--muted); max-width: 52ch; margin: 0 0 22px; }
+  .hero .lead { margin-bottom: 14px; }
+  .hero-facts { margin: 24px 0 24px; font-size: 13px; }
+  .hero-facts li { padding: 9px 0; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .hero-card { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--dark); box-shadow: 0 30px 60px -30px rgba(16,16,19,.55); }
+  .hero-card img { width: 100%; height: auto; }
+  .hero-card figcaption {
+    display: flex; justify-content: space-between; gap: 16px;
+    padding: 14px 18px; color: #f4f1ec; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
+  }
+  .hero-card figcaption span:last-child { color: #bdb8b0; }
+
+  .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-2); }
+  .strip ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; list-style: none; margin: 0; padding: 20px 0; }
+  .strip li { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); text-align: center; }
+
+  section { padding: 78px 0; }
+  .section-head { max-width: 62ch; margin-bottom: 44px; }
+  h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 14px; font-weight: 800; }
+  .section-head p { margin: 0; color: var(--muted); font-size: 16px; }
+  .cols { display: grid; grid-template-columns: 1.2fr .8fr; gap: 56px; align-items: start; }
+  .prose p { margin: 0 0 16px; color: var(--ink-soft); }
+  .facts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .facts li { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .facts span:first-child { color: var(--muted); }
+  .facts span:last-child { font-weight: 700; text-align: right; }
+
+  .work { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .work-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 0; border-radius: var(--radius); overflow: hidden; background: var(--dark); }
+  .work-media { background: #0b0b0d; }
+  .work-media img { width: 100%; height: 100%; object-fit: cover; min-height: 340px; }
+  .work-body { padding: 40px; color: #f4f1ec; align-self: center; }
+  .work-body .tag { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #ff5566; margin: 0 0 14px; }
+  .work-body h3 { font-size: 30px; line-height: 1.1; margin: 0 0 14px; }
+  .work-body p { color: #bdb8b0; margin: 0 0 22px; }
+  .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; list-style: none; padding: 0; margin: 0 0 26px; font-size: 13px; color: #dcd7cf; }
+  .specs li { display: flex; gap: 8px; }
+  .specs li::before { content: ""; width: 6px; height: 6px; margin-top: 7px; background: var(--red); flex: none; }
+  .work-body .btn-ghost { border-color: #3a3a40; color: #fff; }
+  .work-body .btn-ghost:hover { border-color: #fff; }
+  .lineup { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 22px; }
+  .lineup-card { border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: var(--paper); }
+  .lineup-card .num { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--red); }
+  .lineup-card h4 { margin: 8px 0 4px; font-size: 15px; line-height: 1.2; }
+  .lineup-card p { margin: 0; font-size: 12px; color: var(--muted); }
+  .lineup-card.is-live { background: var(--dark); border-color: var(--dark); }
+  .lineup-card.is-live h4 { color: #fff; }
+  .lineup-card.is-live p { color: #bdb8b0; }
+
+  .gallery { background: var(--paper); border-top: 1px solid var(--line); }
+  .gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .gal-item { margin: 0; border-radius: 12px; overflow: hidden; background: var(--dark); border: 1px solid var(--line); }
+  .gal-item img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; }
+  .gal-item video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; }
+  .gal-item figcaption { display: flex; justify-content: space-between; gap: 10px; padding: 12px 14px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #bdb8b0; }
+  .gal-item figcaption span:last-child { color: #8f8a83; }
+  .gal-item.is-nsfw { position: relative; cursor: pointer; }
+  .gal-item.is-nsfw img { filter: blur(26px) saturate(.85); transform: scale(1.04); transition: filter .2s ease; }
+  .gal-item.is-nsfw.revealed img { filter: none; transform: none; }
+  .gal-item.is-nsfw::after {
+    content: "NSFW · +18\A Click to view";
+    white-space: pre; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    text-align: center; font-size: 12px; font-weight: 800; letter-spacing: .14em; color: #fff;
+    background: rgba(10,10,12,.45);
+  }
+  .gal-item.is-nsfw.revealed::after { display: none; }
+  .gal-feature { margin: 22px 0 0; border-radius: 12px; overflow: hidden; background: var(--dark); border: 1px solid var(--line); }
+  .gal-feature video { display: block; width: 100%; max-width: 760px; height: auto; margin: 0 auto; background: #000; }
+  .gal-feature figcaption { display: flex; justify-content: space-between; gap: 10px; padding: 14px 18px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #bdb8b0; }
+  .gal-feature figcaption span:last-child { color: #8f8a83; }
+  .gal-sub { font-size: clamp(20px, 2.4vw, 26px); letter-spacing: -.01em; margin: 46px 0 6px; }
+  .gal-note { margin: 0 0 16px; font-size: 13px; color: var(--muted); }
+  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+  .tier { border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; background: var(--paper-2); }
+  .tier-name { margin: 0 0 6px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+  .tier-price { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+  .tier-note { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
+
+  .biz { background: #fff; }
+
+  .policies { background: var(--paper); border-top: 1px solid var(--line); }
+  .policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .policy { border: 1px solid var(--line); border-radius: 12px; padding: 26px; background: #fff; }
+  .policy h3 { margin: 0 0 10px; font-size: 17px; letter-spacing: -.01em; }
+  .policy p { margin: 0 0 10px; color: var(--ink-soft); font-size: 14px; }
+  .policy p:last-child { margin-bottom: 0; }
+  .policy ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: 14px; }
+  .policy li { margin-bottom: 6px; }
+  .biz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .biz-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; background: var(--paper); }
+  .biz-card dl { margin: 0; display: grid; gap: 0; }
+  .biz-card dt { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); padding-top: 14px; }
+  .biz-card dt:first-child { padding-top: 0; }
+  .biz-card dd { margin: 2px 0 14px; font-weight: 700; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+  .biz-card dd:last-child { border-bottom: 0; padding-bottom: 0; }
+
+  .contact { background: var(--dark); color: #f4f1ec; }
+  .contact h2 { color: #fff; }
+  .contact p { color: #bdb8b0; }
+  .contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .mail {
+    display: inline-block; font-size: clamp(20px, 3vw, 30px); font-weight: 800; letter-spacing: -.01em;
+    color: #fff; text-decoration: none; border-bottom: 2px solid var(--red); padding-bottom: 6px; word-break: break-all;
+  }
+  .mail:hover { color: #ff5566; }
+  .contact-note { font-size: 13px; color: #8f8a83; margin-top: 18px; }
+  .contact-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .contact-links a {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    text-decoration: none; border: 1px solid #2c2c31; border-radius: 10px; padding: 16px 18px;
+    font-weight: 700; color: #f4f1ec; background: #17171b;
+  }
+  .contact-links a:hover { border-color: var(--red); }
+  .contact-links small { color: #8f8a83; font-weight: 600; }
+  .contact-links .soon {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    border: 1px dashed #2c2c31; border-radius: 10px; padding: 16px 18px;
+    font-weight: 700; color: #8f8a83; background: #131316;
+  }
+
+  footer { background: #0a0a0c; color: #8f8a83; padding: 34px 0; font-size: 12px; }
+  .foot { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .foot img { width: 42px; height: 42px; }
+  .foot p { margin: 0; }
+  .foot .legal { margin-left: auto; text-align: right; }
+  .foot a { color: #bdb8b0; text-decoration: none; }
+  .foot a:hover { color: #fff; }
+  .foot-links { display: flex; gap: 16px; }
+  .foot-links a { border-bottom: 1px solid #2c2c31; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .cols, .work-grid, .biz-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero { padding: 48px 0; }
+    .work-media img { min-height: 260px; }
+    .strip ul { grid-template-columns: 1fr; gap: 10px; }
+    .lineup { grid-template-columns: repeat(2, 1fr); }
+    .gal-grid { grid-template-columns: repeat(2, 1fr); }
+    .policy-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    .foot .legal { margin-left: 0; text-align: left; }
+  }
+  @media (max-width: 560px) {
+    .lineup, .specs { grid-template-columns: 1fr; }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0f0f11;
+      --paper-2: #151519;
+      --ink: #f4f1ec;
+      --ink-soft: #cfcabf;
+      --muted: #98938b;
+      --line: #2b2b31;
+      --red: #ff2f4a;
+      --red-dark: #d90429;
+    }
+    header { background: rgba(15,15,17,.9); }
+    .biz { background: #0b0b0d; }
+    .biz-card, .policy { background: #17171b; }
+    .strip { background: var(--paper-2); }
+    .work { background: #131317; }
+    .contact, footer { background: #08080a; }
+    .hero-card figcaption span:last-child { color: #98938b; }
+    .contact-links a { background: #17171b; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="logo">🚀 Drako Figures</div>
-        <nav>
-            <a href="#home" data-es="Inicio">Home</a>
-            <a href="#about" data-es="Acerca">About</a>
-            <a href="#contact" data-es="Contacto">Contact</a>
-            <div class="lang">
-                <button onclick="setLang('es')">ES</button> | <button onclick="setLang('en')">EN</button>
-            </div>
-        </nav>
-    </header>
-    <main class="content">
-        <section id="home">
-            <h1 data-es="¡Drako Heavy Metal Goddess!" data-en="Drako Heavy Metal Goddess!"></h1>
-            <p data-es="Descubre la figura definitiva de la diosa del metal." data-en="Discover the ultimate heavy‑metal goddess figure."></p>
-        </section>
-        <section id="about">
-            <h2 data-es="Acerca de" data-en="About"></h2>
-            <p data-es="Drako es la nueva sensación en figuras coleccionables de figuras 3D." data-en="Drako is the new sensation in 3D collectible figures."></p>
-        </section>
-        <section id="contact">
-            <h2 data-es="Contacto" data-en="Contact"></h2>
-            <p data-es="Ponte en contacto con nosotros para pedidos y consultas." data-en="Get in touch for orders and inquiries."></p>
-        </section>
-    </main>
-    <script>
-        const langMap = {es:'es', en:'en'};
-        function setLang(lang) {
-            document.querySelectorAll('[data-es],[data-en]').forEach(el=>{
-                const key = el.getAttribute('data-'+langMap[lang]);
-                if (key) el.textContent = key;
-            });
-            document.documentElement.lang = langMap[lang];
-        }
-        setLang('es'); // Español por defecto
-    </script>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="DRAKO figures LLC home">
+      <img src="assets/icon.png" alt="DRAKO figures dragon mark">
+      <span>DRAKO figures<small>LLC · Digital collectibles</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#about">Studio</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#business">Business</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-red" href="mailto:drakofigures@gmail.com">Get in touch</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div id="about">
+        <p class="eyebrow">Independent 3D design studio</p>
+        <h1>Digital collectible figures for <em>3D printing</em>.</h1>
+        <p class="lead">
+          DRAKO figures LLC designs original, display-ready STL figures for resin printing.
+          Sculpted in detail, prepared for real printing, and delivered as digital files worldwide.
+        </p>
+        <p class="lead-2">
+          Now releasing <strong>Goddess of Heavy Metal</strong>, figure 01 of four in the
+          <strong>Goddess of Rock</strong> collection. Support and unsupported files, personal and
+          commercial licences.
+        </p>
+        <ul class="facts hero-facts">
+          <li><span>Studio</span><span>DRAKO figures LLC</span></li>
+          <li><span>Collection</span><span>Goddess of Rock · 4 figures</span></li>
+          <li><span>Scale</span><span>120 mm / 75 mm</span></li>
+          <li><span>Delivery</span><span>Instant download · worldwide</span></li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-red" href="#work">View the collection</a>
+          <a class="btn btn-ghost" href="#business">Business information</a>
+        </div>
+      </div>
+      <figure class="hero-card">
+        <img src="assets/hero-motion.webp" alt="Animated turntable of the Goddess of Heavy Metal: 120 mm STL figure with gothic base and guitar" width="720" height="1280">
+        <figcaption><span>Goddess of Heavy Metal</span><span>120 mm STL</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <ul>
+        <li>Digital delivery</li>
+        <li>Worldwide customers</li>
+        <li>Personal &amp; commercial licenses</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The collection</p>
+        <h2>Goddess of Rock</h2>
+        <p>Four figures. One collection. Now presenting <strong>01 — Goddess of Heavy Metal</strong>.</p>
+      </div>
+      <div class="work-grid">
+        <div class="work-media">
+          <img src="assets/work.webp" alt="Close-up of the Goddess of Heavy Metal STL figure" width="1200" height="900" loading="lazy">
+        </div>
+        <div class="work-body">
+          <p class="tag">01 / 04 — Goddess of Heavy Metal</p>
+          <h3>One character. Three stages. Three guitars.</h3>
+          <p>
+            The first of four figures in the collection: a 120 mm resin figure with interchangeable hands,
+            three display bases and three guitars, designed as a set and shown as one complete piece.
+          </p>
+          <ul class="specs">
+            <li>Figure 01 of 04</li>
+            <li>120 mm and 75 mm versions</li>
+            <li>3 bases: Power, Cathedral, Sound Stage</li>
+            <li>3 guitars: Dragon, Demon Axe, Angel Wing</li>
+            <li>8 interchangeable hands</li>
+            <li>Supported and unsupported files</li>
+            <li>SFW release</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://linktr.ee/drakofigures" rel="noopener">See release links</a>
+        </div>
+      </div>
+      <div class="lineup">
+        <div class="lineup-card is-live">
+          <p class="num">01 · Available</p>
+          <h4>Goddess of Heavy Metal</h4>
+          <p>Kickstarter release · 2026</p>
+        </div>
+        <div class="lineup-card">
+          <p class="num">In development</p>
+          <h4>Goddess of Punk</h4>
+          <p>Coming after release</p>
+        </div>
+        <div class="lineup-card">
+          <p class="num">In development</p>
+          <h4>Goddess of Synth</h4>
+          <p>Coming after release</p>
+        </div>
+        <div class="lineup-card">
+          <p class="num">In development</p>
+          <h4>Goddess of Glam</h4>
+          <p>Coming after release</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Gallery</p>
+        <h2>Built to print, piece by piece.</h2>
+        <p>Complete figure, back view, premium detail, the Early Bird and Collector rewards, the three bases, the guitars, the hands, the scale comparison, the pre-supported Chitubox view, the legend and the NSFW version.</p>
+      </div>
+      <div class="gal-grid">
+        <figure class="gal-item">
+          <img src="assets/gallery/01-complete.webp" alt="Animated turntable of the complete Goddess of Heavy Metal figure" width="540" height="960" loading="lazy">
+          <figcaption><span>Complete figure</span><span>120 mm · SFW</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/02-goddess.webp" alt="Animated back view of the finished figure" width="540" height="960" loading="lazy">
+          <figcaption><span>Back view</span><span>360° sculpt</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/03-premium.webp" alt="Animated close-up of the face and armour detail" width="540" height="960" loading="lazy">
+          <figcaption><span>Premium detail</span><span>Face &amp; armour</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/04-earlybird.webp" alt="Early Bird reward card: 120 mm collector figure, three guitars and the free bust gift" width="540" height="960" loading="lazy">
+          <figcaption><span>Early Bird</span><span>$24 · 100 backers</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/05-collector.webp" alt="Main Collector reward card: figure, three guitars, bases and hands" width="540" height="960" loading="lazy">
+          <figcaption><span>Main Collector</span><span>$29</span></figcaption>
+        </figure>
+        <figure class="gal-item is-nsfw" role="button" tabindex="0" aria-label="NSFW version, blurred. Activate to reveal.">
+          <img src="assets/gallery/06-nsfw.webp" alt="Animated NSFW upgrade card, blurred by default" width="540" height="960" loading="lazy">
+          <figcaption><span>NSFW version</span><span>+18</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/07-bases.webp" alt="Animated view of the three display bases" width="540" height="960" loading="lazy">
+          <figcaption><span>3 bases</span><span>Power · Cathedral · Stage</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/08-guitars.webp" alt="Animated view of the three guitars" width="540" height="960" loading="lazy">
+          <figcaption><span>3 guitars</span><span>Dragon · Demon · Angel</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/09-hands.webp" alt="Animated view of the eight interchangeable hands" width="540" height="960" loading="lazy">
+          <figcaption><span>8 hands</span><span>Swap set</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/10-scale.webp" alt="Animated size comparison between the 75 mm, 120 mm and bust versions" width="540" height="960" loading="lazy">
+          <figcaption><span>Scale comparison</span><span>75 · 120 mm · bust</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/11-chitubox.webp" alt="Animated Chitubox view of the pre-supported 75 mm version" width="540" height="960" loading="lazy">
+          <figcaption><span>Chitubox · 75 mm</span><span>Pre-supported</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/gallery/12-history.webp" alt="Animated card telling the legend of the four Goddesses of Rock" width="540" height="960" loading="lazy">
+          <figcaption><span>The legend</span><span>Goddess of Rock</span></figcaption>
+        </figure>
+      </div>
+      <h3 class="gal-sub">Kickstarter tiers</h3>
+      <p class="gal-note">Planned prices in USD. Final tiers and availability confirmed at launch.</p>
+      <div class="tiers">
+        <div class="tier"><p class="tier-name">Early Bird</p><p class="tier-price">$24</p><p class="tier-note">First 100 backers · free bust gift</p></div>
+        <div class="tier"><p class="tier-name">Main Collector</p><p class="tier-price">$29</p><p class="tier-note">Figure, 3 guitars, 3 bases, 8 hands</p></div>
+        <div class="tier"><p class="tier-name">Instant All</p><p class="tier-price">$39</p><p class="tier-note">Everything included · stretch goals</p></div>
+        <div class="tier"><p class="tier-name">Merchant</p><p class="tier-price">$59</p><p class="tier-note">Commercial licence · sell prints</p></div>
+        <div class="tier"><p class="tier-name">NSFW add-on</p><p class="tier-price">+$12</p><p class="tier-note">Optional upgrade · 18+</p></div>
+      </div>
+      <figure class="gal-feature">
+        <video src="assets/gallery/clay.mp4" width="640" height="640" autoplay loop muted playsinline preload="metadata" aria-label="Clay turntable preview of the sculpt"></video>
+        <figcaption><span>Clay turntable</span><span>Sculpt preview</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="biz" id="business">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Business information</p>
+        <h2>Company details</h2>
+        <p>Information for partners, platforms and financial institutions.</p>
+      </div>
+      <div class="biz-grid">
+        <div class="biz-card">
+          <dl>
+            <dt>Legal name</dt>
+            <dd>DRAKO figures LLC</dd>
+            <dt>Business type</dt>
+            <dd>Digital products &amp; online retail</dd>
+            <dt>Products</dt>
+            <dd>3D-printable STL figure files</dd>
+            <dt>Delivery</dt>
+            <dd>Digital download only</dd>
+            <dt>Customers</dt>
+            <dd>Worldwide</dd>
+            <dt>Sales channels</dt>
+            <dd>Online marketplaces &amp; subscriptions</dd>
+            <dt>Contact</dt>
+            <dd><a href="mailto:drakofigures@gmail.com">drakofigures@gmail.com</a></dd>
+          </dl>
+        </div>
+        <div class="prose">
+          <p>
+            DRAKO figures LLC creates and sells original digital sculpts for 3D printing. Revenue comes
+            from direct sales of digital files, collection releases and commercial licenses. There is no
+            physical inventory and no shipping operation.
+          </p>
+          <p>
+            Products are delivered as downloadable files. Buyers print them on their own equipment.
+            The company operates online and serves individual makers, painters and small print shops.
+          </p>
+          <p>
+            Brand and studio: <strong>DRAKO figures</strong>. DRAKO is a standalone brand with its own
+            catalog, pricing and audience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="policies" id="policies">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Policies</p>
+        <h2>Delivery, refunds &amp; license</h2>
+        <p>Clear terms for customers, platforms and payment partners.</p>
+      </div>
+      <div class="policy-grid">
+        <article class="policy" id="delivery">
+          <h3>Digital delivery</h3>
+          <p>
+            All products are digital files (STL). After payment, the buyer receives a download link
+            by email or through the sales platform. No physical item is shipped.
+          </p>
+          <p>Files are delivered in the format and scale stated on each listing.</p>
+        </article>
+        <article class="policy" id="refunds">
+          <h3>Refunds</h3>
+          <p>
+            Because files are digital and delivered immediately, sales are final once the download
+            is available.
+          </p>
+          <p>
+            If a file is corrupted, incomplete or not as described, contact us within 14 days and we
+            will repair it, replace it or refund the purchase.
+          </p>
+        </article>
+        <article class="policy" id="license">
+          <h3>License</h3>
+          <ul>
+            <li><strong>Personal:</strong> print for private use.</li>
+            <li><strong>Commercial:</strong> sell physical prints, not the digital files.</li>
+            <li>Reselling, sharing or redistributing STL files is not allowed.</li>
+            <li>Each purchase is for one person or studio.</li>
+          </ul>
+        </article>
+        <article class="policy" id="privacy">
+          <h3>Privacy &amp; payments</h3>
+          <p>
+            This site has no user accounts and no tracking cookies. Emails are used only to answer
+            inquiries.
+          </p>
+          <p>
+            Payments are processed by third-party platforms. We do not receive or store card data.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Business &amp; licensing</h2>
+        <p>For commercial licenses, platform verification, partnerships or press, email us directly.</p>
+        <p><a class="mail" href="mailto:drakofigures@gmail.com">drakofigures@gmail.com</a></p>
+        <p class="contact-note">Platform or verification requests: include the platform and deadline in the subject.</p>
+      </div>
+      <ul class="contact-links">
+        <li><a href="https://linktr.ee/drakofigures" rel="noopener">Official links <small>linktr.ee/drakofigures</small></a></li>
+        <li><a href="mailto:drakofigures@gmail.com">Email the studio <small>drakofigures@gmail.com</small></a></li>
+        <li><a href="#work">Product information <small>Goddess of Rock</small></a></li>
+        <li><a href="https://www.kickstarter.com/profile/445629813" rel="noopener">Kickstarter <small>Profile</small></a></li>
+        <li><a href="https://www.myminifactory.com/es/users/DRAKOfigures" rel="noopener">MyMiniFactory <small>Store</small></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/logo-dark.png" alt="" aria-hidden="true">
+    <p>&copy; 2026 DRAKO figures LLC. All rights reserved.</p>
+    <p class="foot-links">
+      <a href="#delivery">Delivery</a>
+      <a href="#refunds">Refunds</a>
+      <a href="#license">License</a>
+      <a href="#privacy">Privacy</a>
+    </p>
+    <p class="legal">Digital collectible figures for 3D printing.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.gal-item.is-nsfw').forEach(function (el) {
+    function reveal() { el.classList.toggle('revealed'); }
+    el.addEventListener('click', reveal);
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reveal(); }
+    });
+  });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "DRAKO figures LLC",
+  "email": "drakofigures@gmail.com",
+  "description": "Independent design studio creating original STL figures for 3D printing.",
+  "sameAs": ["https://linktr.ee/drakofigures", "https://www.kickstarter.com/profile/445629813", "https://www.myminifactory.com/es/users/DRAKOfigures"]
+}
+</script>
 </body>
 </html>
