@@ -225,6 +225,12 @@
     try { saved = localStorage.getItem('drakolang') || 'en'; } catch (e) { }
     if (saved !== 'es') { saved = 'en'; }
 
+    // Permite enlazar directo en español: ...?lang=es
+    try {
+      var q = new URLSearchParams(window.location.search).get('lang');
+      if (q === 'es' || q === 'en') { saved = q; }
+    } catch (e) { }
+
     document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
       b.addEventListener('click', function () { apply(b.getAttribute('data-lang-btn')); });
     });
